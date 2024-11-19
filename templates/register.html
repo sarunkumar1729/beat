@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'styles/register.css' %}'>
+<h2>Register here</h2>
+      <form method='POST'>
+            {% csrf_token %}
+            <label for='username'>username : </label>
+            <input type='text' id='username' name='user_name'>
+            <label for='password'>password</label>
+            <input type='password' id='password' name='pass_word'>
+            <label for='confirm_password'>confirm your password</label>
+            <input type='password' id='confirm_password' name='confirm_password'>
+            <input type='submit' value='Register'>
+      </form>
+{% endblock %}

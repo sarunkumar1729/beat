@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'styles/register.css' %}'>
+{% if msg %}
+      <span style='color:red;'>{{msg}}</span>
+{% endif %}
+<h2>Login here</h2>
+      <form method='POST'>
+            {% csrf_token %}
+            <label for='username'>username : </label>
+            <input type='text' id='username' name='user_name'>
+            <label for='password'>password</label>
+            <input type='password' id='password' name='pass_word'>
+            <input type='submit' value='Login'>
+      </form>
+{% endblock %}
