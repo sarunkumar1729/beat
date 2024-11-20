@@ -1,16 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>My First Webpage</title>
+    <link rel='stylesheet' href='{% static 'styles/navbar.css' %}'>
   </head>
-  <a href='{% url 'trainer_home' %}'>HOME</a>
-  <a href='{% url 'register_trainer' %}'>REGISTER</a>
-      {% if not user.is_authenticated %}
-            <a href='{% url 'login_trainer' %}'>LOGIN</a>
-      {% else %}
-            <a href='{% url 'logout_trainer' %}'>LOGOUT</a>
-      {% endif %}
+  <nav class="navbar">
+      <div class="nav-links">
+        <a href="{% url 'trainer_home' %}">HOME</a>
+        <a href="{% url 'register_trainer' %}">REGISTER</a>
+        {% if not user.is_authenticated %}
+          <a href="{% url 'login_trainer' %}">LOGIN</a>
+        {% else %}
+          <a href="{% url 'logout_trainer' %}">LOGOUT</a>
+        {% endif %}
+      </div>
+    </nav>
+    
   {% block content %}
 
   {% endblock %}
