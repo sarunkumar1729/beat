@@ -35,3 +35,24 @@ def trainer_home(request):
 def logout_trainer(request):
       logout(request)
       return redirect('login_trainer')
+
+@login_required(login_url='login_trainer')
+def update_profile(request):
+      if request.method=='POST':
+             id=request.POST['id']
+             name=request.POST['name']
+             address=request.POST['address']
+             department=request.POST['department']
+             age=request.POST['age']
+             gender=request.POST['gender']
+             phone=request.POST['phone']
+             email=request.POST['email']
+             married=request.POST['married']
+             joining_date=request.POST['joining date']
+             print(
+                   id,name,address,department,
+                   age,gender,phone,email,married,joining_date
+             )            
+             return redirect('trainer_home') 
+      else:
+            return render(request,'edit_profile.html')

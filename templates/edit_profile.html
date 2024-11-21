@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'styles/edit_profile.css' %}">
+<form method="POST" action="{% url 'update_profile' %}">
+      {% csrf_token %}
+      
+      <div>
+          <label for="id">ID</label>
+          <input type="text" id="id" name="id" required>
+      </div>
+  
+      <div>
+          <label for="name">NAME</label>
+          <input type="text" id="name" name="name" required>
+      </div>
+  
+      <div>
+          <label for="address">ADDRESS</label>
+          <input type="text" id="address" name="address" required>
+      </div>
+  
+      <div>
+          <label for="department">DEPARTMENT</label>
+          <select name="department">
+              <option value="DS">DATA SCIENCE</option>
+              <option value="DA">DATA ANALYTICS</option>
+              <option value="PFS">PYTHON FULLSTACK</option>
+          </select>
+      </div>
+  
+      <div>
+          <label for="age">AGE</label>
+          <input type="number" id="age" name="age" required>
+      </div>
+  
+      <div class="radio-group">
+          <label for="gender">GENDER</label>
+          <label for="male">MALE</label>
+          <input type="radio" id="male" value="M" name="gender">
+          <label for="female">FEMALE</label>
+          <input type="radio" id="female" value="F" name="gender">
+      </div>
+  
+      <div>
+          <label for="phone">PHONE</label>
+          <input type="number" id="phone" name="phone" required>
+      </div>
+  
+      <div>
+          <label for="email">EMAIL</label>
+          <input type="email" id="email" name="email" required>
+      </div>
+  
+      <div class="checkbox-group">
+          <label for="married">MARRIED</label>
+          <input type="checkbox" id="married" name="married">
+      </div>
+  
+      <div>
+          <label for="joining-date">JOINING DATE</label>
+          <input type="date" id="joining-date" name="joining date" required>
+      </div>
+  
+      <div>
+          <input type="submit" value="SAVE PROFILE">
+      </div>
+  </form>
+  
+{% endblock %}

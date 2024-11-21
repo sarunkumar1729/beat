@@ -1,0 +1,76 @@
+      /* General form styling */
+      form {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        /* Full-width elements */
+        form input[type="submit"] {
+            grid-column: span 2;
+        }
+        
+        /* Label and input styling */
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="email"],
+        form input[type="date"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        /* Radio and checkbox styling */
+        form .radio-group,
+        form .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Submit button styling */
+        form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        /* Submit button hover effect */
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        
+            form input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+        
