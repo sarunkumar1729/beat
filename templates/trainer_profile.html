@@ -1,7 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <h3>Profile</h3>
-      <span>{{profile.trainer_name}}</span>
-      <img width='200px' src="{{profile.photo.url}}">
+{% load static %}
+<link rel='stylesheet' href="{% static 'styles/profile.css' %}">
+<div class="profile-container">
+      <div class="profile-header">
+        <img src="{{ profile.photo.url }}" alt="Profile Photo" class="profile-photo">
+        <h2 class="profile-name">{{ profile.trainer_name }}</h2>
+        <p class="profile-title">Trainer ID: {{ profile.trainer_id }}</p>
+      </div>
+      <div class="profile-details">
+        <div class="detail-row">
+          <span class="label">Department:</span>
+          <span class="value">{{ profile.department }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Address:</span>
+          <span class="value">{{ profile.address }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Age:</span>
+          <span class="value">{{ profile.age }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Gender:</span>
+          <span class="value">{{ profile.gender }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Phone:</span>
+          <span class="value">{{ profile.phone }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Email:</span>
+          <span class="value">{{ profile.email }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Married:</span>
+          <span class="value">{{ profile.married|yesno:"Yes,No" }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Salary:</span>
+          <span class="value">₹{{ profile.salary }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Joining Date:</span>
+          <span class="value">{{ profile.joining_date }}</span>
+        </div>
+      </div>
+    </div>
+    
 {% endblock %}

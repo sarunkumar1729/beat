@@ -1,0 +1,85 @@
+/* Profile container */
+.profile-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+  }
+  
+  /* Profile header (with photo) */
+  .profile-header {
+      /* background-color: #4caf50; */
+      background-color: #007bff;;
+      color: white;
+      padding: 60px 20px 20px; /* Added top padding for photo spacing */
+      text-align: center;
+      position: relative;
+  }
+  
+  .profile-header .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      position: absolute;
+      top: 20px; /* Adjusted to fit above the name */
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .profile-header .profile-name {
+      margin-top: 100px; /* Adjusted for photo spacing */
+      font-size: 24px;
+      font-weight: bold;
+  }
+  
+  .profile-header .profile-title {
+      font-size: 16px;
+      font-weight: normal;
+      color: #ddd;
+  }
+  
+  /* Profile details section */
+  .profile-details {
+      padding: 20px;
+      color: #333;
+  }
+  
+  .profile-details .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 16px;
+  }
+  
+  .profile-details .detail-row .label {
+      font-weight: bold;
+      color: #555;
+  }
+  
+  .profile-details .detail-row .value {
+      color: #777;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+      .profile-header .profile-photo {
+          width: 100px;
+          height: 100px;
+      }
+  
+      .profile-details .detail-row {
+          flex-direction: column;
+          gap: 5px;
+      }
+  
+      .profile-details .detail-row .label {
+          text-align: left;
+      }
+  }
+  
