@@ -13,6 +13,7 @@
           <a href="{% url 'register_trainer' %}">REGISTER</a>
           <a href="{% url 'login_trainer' %}">LOGIN</a>
         {% else %}
+          <a href="{% url 'trainer_profile' %}">TRAINER PROFILE</a>
           <a href="{% url 'update_profile' %}">UPDATE PROFILE</a>
           <a href="{% url 'logout_trainer' %}">LOGOUT</a>
         {% endif %}

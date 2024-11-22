@@ -2,13 +2,18 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from .models import Trainer
 
 def register_trainer(request):
       if request.method=='POST':
             username = request.POST['user_name']
             password = request.POST['pass_word'] 
-            user = User.objects.create_user(username=username,password=password)
-            user.save()
+            if(User.objects.filter(username=username)):
+                  msg = 'username already exists'
+                  return render(request,'register.html',{'msg':msg})
+            else:
+                  user = User.objects.create_user(username=username,password=password)
+                  user.save()
             return redirect('login_trainer')
       else:
             return render(request,'register.html')
@@ -48,11 +53,33 @@ def update_profile(request):
              phone=request.POST['phone']
              email=request.POST['email']
              married=request.POST['married']
+             if(married):
+                   married=True
+             else:
+                   married=False
              joining_date=request.POST['joining date']
-             print(
-                   id,name,address,department,
-                   age,gender,phone,email,married,joining_date
-             )            
+             photo=request.FILES.get('photo')
+             if(not Trainer.objects.filter(user=request.user)):
+                  profile = Trainer(
+                        user = request.user,
+                        trainer_id = id,
+                        trainer_name = name,
+                        address = address,
+                        department = department,
+                        age = age,
+                        gender = gender,
+                        phone = phone,
+                        email = email,
+                        married = married,
+                        joining_date = joining_date,
+                        photo = photo
+                  )
+                  profile.save()
              return redirect('trainer_home') 
       else:
             return render(request,'edit_profile.html')
+      
+def trainer_profile(request):
+      current_user = request.user
+      profile = Trainer.objects.get(user=current_user)
+      return render(request,'trainer_profile.html',{'profile':profile})

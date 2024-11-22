@@ -14,6 +14,6 @@ class Trainer(models.Model):
       married = models.BooleanField()
       salary = models.IntegerField(null=True)
       joining_date = models.DateField()
-      
+      photo = models.ImageField(upload_to='images')
       
       

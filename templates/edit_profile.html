@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <link rel='stylesheet' href="{% static 'styles/edit_profile.css' %}">
-<form method="POST" action="{% url 'update_profile' %}">
+<form method="POST" action="{% url 'update_profile' %}" enctype="multipart/form-data">
       {% csrf_token %}
       
       <div>
@@ -14,6 +14,9 @@
       <div>
           <label for="name">NAME</label>
           <input type="text" id="name" name="name" required>
+
+          <label>PHOTO</label>
+          <input type='file' name='photo'>
       </div>
   
       <div>

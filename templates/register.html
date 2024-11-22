@@ -4,6 +4,9 @@
 {% load static %}
 <link rel='stylesheet' href='{% static 'styles/register.css' %}'>
 <h2>Register here</h2>
+      {% if msg %}
+      <span style='color:red;'>{{msg}}</span>
+      {% endif %}
       <form method='POST'>
             {% csrf_token %}
             <label for='username'>username : </label>
